@@ -41,6 +41,18 @@ python3 cnn_classifier.py             # CNN version — 99.08% accuracy
 | MNIST digit classifier | 96.29% test accuracy |
 | CNN classifier | 99.08% test accuracy |
 
+## Bonus experiment — synthetic data and domain shift
+
+A separate script, `synthetic_digit_generator.py`, generates fake handwritten-digit-style images by rendering text in different fonts, sizes, and rotations, then trains the same CNN architecture on this synthetic data alone.
+
+| Test condition | Accuracy |
+|---|---|
+| Synthetic test data (same distribution as training) | 99.50% |
+| Real MNIST digits (never seen during training) | 47.15% |
+| Real MNIST digits, after mixing in 200 real examples (~0.3% of MNIST) into training | 82.83% |
+
+**Takeaway:** A model trained only on synthetic data performs almost perfectly on more synthetic data, but poorly on real handwriting — a textbook case of **domain shift**, where a model only generalizes well to data resembling what it was trained on. Strikingly, mixing in a tiny slice of real data closed most of that gap. This mirrors a real, common failure mode in production AI systems, where models trained on one data distribution unexpectedly underperform on a slightly different one.
+
 ## Next steps
 
 - Visualize predictions, including misclassified digits
