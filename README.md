@@ -7,7 +7,7 @@ A hands-on journey into understanding neural networks — starting with pen and 
 - **`manual_backpropagation.py`** — A tiny neural network (2 inputs, 2 hidden neurons, 1 output) built entirely in raw Python using only the `math` module. Includes a manual forward pass, manual backpropagation (the chain rule, computed by hand), and manual gradient descent weight updates. No ML libraries used.
 - **`pytorch_xor_classifier.py`** — The exact same network, rewritten in PyTorch using `autograd`, so every gradient that was previously derived by hand is now computed automatically by `loss.backward()`. Verified to produce identical results to the manual version. Also extended to train on the XOR problem (4 training examples instead of 1).
 - **`mnist_digit_classifier.py`** — A real handwritten digit classifier, trained on the MNIST dataset (60,000 training images, 28x28 pixels each). Uses a feedforward network with ReLU activation and cross-entropy loss for multi-class classification. Achieves **96.29% test accuracy** on unseen images.
-
+- **`cnn_classifier.py`** — A convolutional neural network (CNN), the architecture behind most real-world image recognition systems. Uses two convolution + pooling layers to detect visual patterns (edges, curves) before classifying. Achieves **99.08% test accuracy** on MNIST, surpassing the fully-connected version.
 ## The approach
 
 Before writing any code, every calculation in the first project was worked out by hand on paper — the forward pass, the loss, the backward pass, and the weight updates. The Python and PyTorch versions were then written and checked against those hand calculations to confirm real understanding of the math, rather than just trusting a library to "do the right thing." From there, the same core training loop (forward pass → loss → backward pass → update) was scaled up to a real-world image classification task.
@@ -29,6 +29,7 @@ Before writing any code, every calculation in the first project was worked out b
 python3 manual_backpropagation.py     # raw Python version (single example)
 python3 pytorch_xor_classifier.py     # PyTorch version (XOR, multiple examples)
 python3 mnist_digit_classifier.py     # MNIST digit classifier (downloads dataset automatically)
+python3 cnn_classifier.py             # CNN version — 99.08% accuracy
 \`\`\`
 
 ## Results
@@ -38,9 +39,11 @@ python3 mnist_digit_classifier.py     # MNIST digit classifier (downloads datase
 | Manual neuron (1 example) | Loss: 0.125 → 0.0001 over 1000 epochs |
 | XOR (PyTorch) | Predictions: [0.05, 0.94, 0.94, 0.08] vs target [0, 1, 1, 0] |
 | MNIST digit classifier | 96.29% test accuracy |
+| CNN classifier | 99.08% test accuracy |
 
 ## Next steps
 
 - Visualize predictions, including misclassified digits
-- Try improving MNIST accuracy (more neurons, more epochs, different optimizer)
-- Convolutional neural networks (CNNs) for better image performance
+- Try data augmentation (rotated/shifted digits) to push accuracy even further
+- Build a small web demo where you draw a digit and the model predicts it live
+- Try a harder dataset (Fashion-MNIST or CIFAR-10)
