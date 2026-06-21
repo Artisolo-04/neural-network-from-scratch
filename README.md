@@ -4,9 +4,9 @@ A hands-on journey into understanding neural networks — starting with pen and 
 
 ## What's in this repo
 
-- **`neuron.py`** — A tiny neural network (2 inputs, 2 hidden neurons, 1 output) built entirely in raw Python using only the `math` module. Includes a manual forward pass, manual backpropagation (the chain rule, computed by hand), and manual gradient descent weight updates. No ML libraries used.
-- **`neuron2.py`** — The exact same network, rewritten in PyTorch using `autograd`, so every gradient that was previously derived by hand is now computed automatically by `loss.backward()`. Verified to produce identical results to the manual version. Also extended to train on the XOR problem (4 training examples instead of 1).
-- **`MNIST_P.py`** — A real handwritten digit classifier, trained on the MNIST dataset (60,000 training images, 28x28 pixels each). Uses a feedforward network with ReLU activation and cross-entropy loss for multi-class classification. Achieves **96.29% test accuracy** on unseen images.
+- **`manual_backpropagation.py`** — A tiny neural network (2 inputs, 2 hidden neurons, 1 output) built entirely in raw Python using only the `math` module. Includes a manual forward pass, manual backpropagation (the chain rule, computed by hand), and manual gradient descent weight updates. No ML libraries used.
+- **`pytorch_xor_classifier.py`** — The exact same network, rewritten in PyTorch using `autograd`, so every gradient that was previously derived by hand is now computed automatically by `loss.backward()`. Verified to produce identical results to the manual version. Also extended to train on the XOR problem (4 training examples instead of 1).
+- **`mnist_digit_classifier.py`** — A real handwritten digit classifier, trained on the MNIST dataset (60,000 training images, 28x28 pixels each). Uses a feedforward network with ReLU activation and cross-entropy loss for multi-class classification. Achieves **96.29% test accuracy** on unseen images.
 
 ## The approach
 
